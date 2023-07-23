@@ -1,5 +1,7 @@
 package com.aws.awsspringboot.web.domain.posts;
 
+import com.aws.awsspringboot.domain.posts.Posts;
+import com.aws.awsspringboot.domain.posts.PostsRepository;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Test;

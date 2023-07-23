@@ -1,6 +1,6 @@
 package com.aws.awsspringboot.web.dto;
 
-import com.aws.awsspringboot.web.domain.posts.Posts;
+import com.aws.awsspringboot.domain.posts.Posts;
 import lombok.Getter;
 
 import java.time.LocalDateTime;

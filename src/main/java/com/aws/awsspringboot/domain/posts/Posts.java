@@ -1,6 +1,6 @@
-package com.aws.awsspringboot.web.domain.posts;
+package com.aws.awsspringboot.domain.posts;
 
-import com.aws.awsspringboot.web.domain.BaseTimeEntity;
+import com.aws.awsspringboot.domain.BaseTimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

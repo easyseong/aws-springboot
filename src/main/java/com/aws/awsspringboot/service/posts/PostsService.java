@@ -1,7 +1,7 @@
 package com.aws.awsspringboot.service.posts;
 
-import com.aws.awsspringboot.web.domain.posts.Posts;
-import com.aws.awsspringboot.web.domain.posts.PostsRepository;
+import com.aws.awsspringboot.domain.posts.Posts;
+import com.aws.awsspringboot.domain.posts.PostsRepository;
 import com.aws.awsspringboot.web.dto.PostsListResponseDto;
 import com.aws.awsspringboot.web.dto.PostsResponseDto;
 import com.aws.awsspringboot.web.dto.PostsSaveRequestDto;
