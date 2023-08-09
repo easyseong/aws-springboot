@@ -32,11 +32,15 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         OAuth2UserService<OAuth2UserRequest, OAuth2User> delegate = new DefaultOAuth2UserService();
         OAuth2User oAuth2User = delegate.loadUser(userRequest);
 
-        String registrationId = userRequest.getClientRegistration().getRegistrationId(); // 현재 로그인 진행 중인 서비스를 구분하는 코드
+        // 현재 로그인 진행 중인 서비스를 구분하는 코드
+        String registrationId = userRequest.getClientRegistration().getRegistrationId();
+
+        // 로그인 진행 시 키가 되는 필드값
         String useNameAttributeName = userRequest
                 .getClientRegistration().getProviderDetails()
                 .getUserInfoEndpoint().getUserNameAttributeName();
 
+        // OAuthAttributes: OAuthUser의 속성을 담음
         OAuthAttributes attributes = OAuthAttributes
                 .of(registrationId, useNameAttributeName, oAuth2User.getAttributes());
 
@@ -50,7 +54,10 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
     }
 
     private User saveOrUpdate(OAuthAttributes attributes) {
-        User user = userRepository.findByEmail(attributes.getEmail()).map(entity -> entity.update(attributes.getName(), attributes.getPicture())).orElse(attributes.toEntity());
+        // 조회된 유저가 있다면 update, 없으면 유저 엔티티로 변환
+        User user = userRepository.findByEmail(attributes.getEmail())
+                .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
+                .orElse(attributes.toEntity());
 
         return userRepository.save(user);
 
