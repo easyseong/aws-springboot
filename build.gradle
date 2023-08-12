@@ -40,4 +40,5 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.springframework.session:spring-session-jdbc'
+    implementation 'org.springframework.security:spring-security-test'
 }
